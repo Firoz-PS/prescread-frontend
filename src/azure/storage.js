@@ -18,7 +18,8 @@ const getBlobsInContainer = async (containerClient) => {
     returnedBlobUrls.push(`https://${storageAccountName}.blob.core.windows.net/${containerName}/${blob.name}`);
   }
 
-  return returnedBlobUrls;
+  //return the last element of the array
+  return returnedBlobUrls[returnedBlobUrls.length - 1];
 };
 // </snippet_getBlobsInContainer>
 

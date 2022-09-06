@@ -2,7 +2,6 @@ import AppBar from "../../Components/TopBar/TopBar";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import DropZone from "../../Components/DropZone/DropZone";
-import { isStorageConfigured } from "../../azure/storage";
 
 export default function Main() {
   return (
@@ -17,15 +16,6 @@ export default function Main() {
             <DropZone />
           </Grid>
           <Grid item xs={0} md={3}></Grid>
-          <Grid item xs={12}>
-            {isStorageConfigured() ? (
-              <div>Storage configured</div>
-            ) : (
-                <div>
-                  <h1>Storage is not configured</h1>
-              </div>
-            )}
-          </Grid>
         </Grid>
       </Box>
     </div>

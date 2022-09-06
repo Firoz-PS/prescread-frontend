@@ -92,12 +92,13 @@ export default function DropZone(){
         color: "green",
       });
       try {
-        const blobsInContainer = await uploadFileToBlob(file.currentFile);
+        const blobUrl = await uploadFileToBlob(file.currentFile);
+        // blob url should print in italics
         setMessage({
-          text: "File uploaded successfully",
+          text: "File uploaded successfully in blob storage. Blob URL: " + blobUrl,
           color: "green",
         });
-        console.log(blobsInContainer);
+        console.log(blobUrl);
       } catch (error) {
         setMessage({
           text: "Could not upload the file",
@@ -146,7 +147,7 @@ export default function DropZone(){
     open,
   } = useDropzone({
     onDrop,
-    accept: "image/jpeg, image/png, image/jpg, application/pdf",
+    accept: "image/jpeg, image/png, image/jpg",
     maxSize: { maxSize },
     noClick: true,
     noKeyboard: true,
@@ -182,7 +183,7 @@ export default function DropZone(){
           >
             <Grid item>
               <Typography variant="subtitle1" align="center">
-                jpeg, jpg, png and pdf files are accepted. <br /> (max-size per
+                jpeg, jpg, and png files are accepted. <br /> (max-size per
                 file: 3MB)
               </Typography>
             </Grid>
